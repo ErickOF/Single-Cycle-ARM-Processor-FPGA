@@ -1,6 +1,6 @@
 module sc #(parameter N=3)
 			  (input  logic [N-1:0] a,
-			   output logic [2:0]   resul);
+			   output logic [N-1:0]   resul);
 
 logic [N-1:0] b;
 logic [N-1:0] r_sc;

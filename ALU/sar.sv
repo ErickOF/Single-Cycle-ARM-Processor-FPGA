@@ -1,5 +1,5 @@
 module sar #(parameter N=3)
-            (input logic  [N-1:0] a, b,
+            (input  logic [N-1:0] a, b,
              output logic [N-1:0] r_sar);
 
 logic signed [N-1:0] result;

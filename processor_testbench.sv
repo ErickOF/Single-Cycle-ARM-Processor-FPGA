@@ -28,10 +28,10 @@ always @(negedge clk) begin
     if(MemWrite) begin
         if(DataAdr === 100 & WriteData === 7) begin
             $display("Simulation succeeded");
-            $stop;
+            // $stop;
         end else if (DataAdr !== 96) begin
             $display("Simulation failed");
-            $stop;
+            // $stop;
         end
     end
 end

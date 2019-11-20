@@ -15,9 +15,6 @@ module datapath(input logic clk, reset,
 logic [31:0] PCNext, PCPlus4, PCPlus8;
 logic [31:0] ExtImm, SrcA, SrcB, Result;
 logic [3:0] RA1, RA2;
-logic [4:0] ALUControlTemp;
-
-assign ALUControlTemp = {2'b0, ALUControl};
 
 // next PC logic
 mux2 #(32) pcmux(PCPlus4, Result, PCSrc, PCNext);
@@ -34,6 +31,6 @@ extend ext(Instr[23:0], ImmSrc, ExtImm);
 
 // ALU logic
 mux2 #(32) srcbmux(WriteData, ExtImm, ALUSrc, SrcB);
-ALU #(32) alu(SrcA, SrcB, ALUControlTemp, ALUResult, ALUFlags[3], ALUFlags[2], ALUFlags[1], ALUFlags[0]);
+ALU #(32) alu(SrcA, SrcB, {2'b0, ALUControl}, ALUResult, ALUFlags[3], ALUFlags[2], ALUFlags[1], ALUFlags[0]);
 
 endmodule // datapath
